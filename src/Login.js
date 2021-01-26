@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {Link, withRouter} from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import Nav from './Nav'
 import {authenticate, getUser} from './helpers'
 

@@ -1,22 +1,35 @@
 import React, {useState, useEffect} from 'react'
 import axios from'axios'
 import Nav from './Nav'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.bubble.css'
 
 const UpdatePost = (props) => {
 
     const [state, setState] = useState({
         title: '',
-        content: '',
+        slug: '',
+        // content: '',
         user: ''
     })
+    const {title, slug, user} = state
 
-    const {title, content, slug, user} = state
+    const [content, setContent] = useState('')
+
+    // rich text editor handle change
+    const handleContent = (e) => {
+        console.log(e)
+        setContent(e)
+    }
+
+
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/post/${props.match.params.slug}`)
         .then(response => {
             const {title, content, slug, user} = response.data
-            setState({...state, title, content, slug, user})
+            setState({...state, title, slug, user})
+            setContent(content)
         })
         .catch(error => alert('Error loading single post'))
     }, [])
@@ -51,7 +64,15 @@ const UpdatePost = (props) => {
         </div>
         <div className="form-group">
             <label className="text-muted">Content</label>
-            <textarea onChange={handleChange('content')} value={content} type="text" className="form-control" placeholder="write here.." required/>
+            <ReactQuill 
+             onChange={handleContent} 
+             value={content} 
+             theme="bubble"
+             className="pb-5 mb-3" 
+             style={{border: '1px solid #666'}}
+             placeholder="write here.." 
+        
+            />
         </div>
         <div className="form-group">
             <label className="text-muted">User</label>
