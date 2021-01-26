@@ -1,17 +1,31 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import Nav from './Nav'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.bubble.css'
+import {getUser} from './helpers'
 
 
 const Create = () => {
-    
+    //state
     const [state, setState] = useState({
         title:'',
-        content:'',
-        user:''
+        user: getUser()
     })
-    //destructure values from state
-    const {title, content, user} = state
+
+    const [content, setContent] = useState('')
+
+    // rich text editor handle change
+    const handleContent = (e) => {
+        console.log(e)
+        setContent(e)
+    }
+
+
+
+
+    //destructure values from state. content was remove for the reactquill(rich text editor), look at state
+    const {title, user} = state
 
     //onchange event handler
     const handleChange = (name) => (event) => {
@@ -26,7 +40,9 @@ const Create = () => {
         .then(response => {
             console.log(response)
             //empty state
-            setState({...state, title: '', content: '', user: ''})
+            setState({...state, title: '',  user: ''})
+            //this will empty the content field. 
+            setContent('')
             //show success alert
             alert(`Post titled ${response.data.title} is created`)
         })
@@ -49,7 +65,15 @@ const Create = () => {
         </div>
         <div className="form-group">
             <label className="text-muted">Content</label>
-            <textarea onChange={handleChange('content')} value={content} type="text" className="form-control" placeholder="write here.." required/>
+            <ReactQuill 
+             onChange={handleContent} 
+             value={content} 
+             theme="bubble"
+             className="pb-5 mb-3" 
+             style={{border: '1px solid #666'}}
+             placeholder="write here.." 
+        
+            />
         </div>
         <div className="form-group">
             <label className="text-muted">User</label>
