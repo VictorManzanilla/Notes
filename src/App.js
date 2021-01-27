@@ -3,7 +3,7 @@ import Nav from './Nav'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import renderHTML from 'react-render-html'
-import {getUser} from './helpers'
+import {getUser, getToken} from './helpers'
 
 
 const App = () => {
@@ -30,7 +30,11 @@ const deleteConfirm = (slug) => {
 
 const deletePost = (slug) => {
   // console.log('delete', slug, 'post')
-  axios.delete(`http://localhost:8000/api/post/${slug}`)
+  axios.delete(`http://localhost:8000/api/post/${slug}`,{
+    headers: {
+        authorization: `Bearer ${getToken()}`
+    }
+  })
   .then(response => {
     alert(response.data.message)
     fetchPosts()

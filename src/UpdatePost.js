@@ -3,6 +3,7 @@ import axios from'axios'
 import Nav from './Nav'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.bubble.css'
+import {getToken} from './helpers'
 
 const UpdatePost = (props) => {
 
@@ -42,7 +43,11 @@ const UpdatePost = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         axios
-        .put(`http://localhost:8000/api/post/${slug}`, {title, content, user})
+        .put(`http://localhost:8000/api/post/${slug}`, {title, content, user}, {
+            headers: {
+                authorization: `Bearer ${getToken()}`
+            }
+        })
         .then(response => {
             console.log(response)
             const {title, content, slug, user} = response.data
