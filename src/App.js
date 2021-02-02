@@ -4,6 +4,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import renderHTML from 'react-render-html'
 import {getUser, getToken} from './helpers'
+import notes from './notes.jpg'
 
 
 const App = () => {
@@ -43,7 +44,8 @@ const deletePost = (slug) => {
 }
 
   return (
-  <div className="container p-5">
+  <div className="container p-5" >
+    
     <Nav/>
     <br />
     <h1>Mern Crud </h1>
