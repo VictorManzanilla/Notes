@@ -6,9 +6,15 @@ import SinglePost from './SinglePost'
 import UpdatePost from './UpdatePost'
 import Login from './Login'
 import PrivateRoute from './PrivateRoute'
+import notes from './notes.jpg'
 
 const Routes = () => {
     return(
+        <div  style={{ backgroundImage: `url(${notes})`,
+        width:'2000px',
+        backgroundPosition: 'center'
+         }}>
+        {/* <img src={notes} class="img-fluid" alt="..."></img> */}
         <BrowserRouter>
         <Switch>
             <Route path="/" exact component={App} />
@@ -19,6 +25,8 @@ const Routes = () => {
 
         </Switch>
         </BrowserRouter>
+        
+        </div>
     )
 }
 
