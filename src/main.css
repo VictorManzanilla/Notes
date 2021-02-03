@@ -1,0 +1,11 @@
+/* login */
+.login {
+    width: 450px;
+    margin: auto;
+}
+
+/* background image */
+body {
+    background: url('notes.jpg') fixed center no-repeat;
+    background-size: cover;
+}
