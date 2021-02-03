@@ -3,6 +3,7 @@ import axios from 'axios'
 import { withRouter} from 'react-router-dom'
 import Nav from './Nav'
 import {authenticate, getUser} from './helpers'
+import './main.css'
 
 
 const Login = (props) => {
@@ -42,7 +43,7 @@ const Login = (props) => {
     }
 
     return(
-        <div className='container pb-5'>
+        <div className='container pb-5 login'>
             <Nav/>
             <br/>
             <h1>Login</h1>
