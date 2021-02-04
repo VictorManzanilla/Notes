@@ -44,11 +44,12 @@ const deletePost = (slug) => {
 }
 
   return (
-  <div className="container p-5" >
+  <div className="col-lg-6 offset-lg-3" >
+    <div class="row justify-content-center">
     
     <Nav/>
     <br />
-    <h1>Mern Crud </h1>
+    <h1>Notas </h1>
     {
       posts.map((post, i) => (
         <div className="row" key={post._id} style={{borderBottom: '1px solid blue'}}>
@@ -76,6 +77,7 @@ const deletePost = (slug) => {
         </div>
       ))
     }
+    </div>
   </div>
   )
 }
