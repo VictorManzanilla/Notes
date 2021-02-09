@@ -8,9 +8,7 @@ const Nav = ({history}) => {
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/" as={Link} to="/">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
     <div class="collapse navbar-collapse" >
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -24,7 +22,8 @@ const Nav = ({history}) => {
                )}
                {getUser() && (
                     <li onClick={() => logout(() => history.push('/'))} className="nav-item">
-                    logout
+                      <a class="nav-link active" href="/" as={Link} to="/">Logout</a>
+                    
                 </li>
                )}
       </ul>

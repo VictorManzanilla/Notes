@@ -56,12 +56,13 @@ const Create = () => {
     }
 
   return (
-  <div className="container p-5">
+  <div className="container p-5 create">
 
 <Nav/>
     <h1>Create Post </h1>
     {/* {JSON.stringify(state)} */}
     <br/>
+    <div >
     <form onSubmit={handleSubmit}>
         <div className="form-group">
             <label className="text-muted">Title</label>
@@ -88,6 +89,7 @@ const Create = () => {
             <button className="btn btn-primary">Create</button>
         </div>
     </form>
+    </div>
   </div>
   )
 }

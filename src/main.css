@@ -4,8 +4,20 @@
     margin: auto;
 }
 
+/* create form align */
+.create {
+    width: 750px;
+    margin: auto;
+}
+
 /* background image */
 body {
     background: url('notes.jpg') fixed center no-repeat;
     background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.badge {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
 }
